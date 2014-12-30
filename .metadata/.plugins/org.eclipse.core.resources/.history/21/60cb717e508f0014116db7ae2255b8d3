@@ -1,0 +1,10 @@
+package TestSuite.TC004_Login_With_InValid_UserName_and_Password;
+
+public class TC004_Login_With_InValid_UserName_and_Password {
+
+	@test
+	public void TC004_Login_With_InValid_UserName_and_Password() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

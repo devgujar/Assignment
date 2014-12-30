@@ -1,0 +1,22 @@
+package TestSuite.TC007_Update_Profile;
+import java.util.Hashtable;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+
+public class TC007_Update_Profile {
+
+	@Test
+	public void TC007_Update_Profile() {
+		start_setup() ;
+		
+		//Navigate to LogIn Window
+		driver.findElement(By.xpath("//a[contains(.,'Login')]")).click();
+	    String test_data_sheet_path ="src/TestSuite/TC003_Login_With_Valid_UserName_and_Password/TC003_Login_With_Valid_UserName_and_Password.xls";
+	    Hashtable<String, String> excellData = GetExcell_Data_As_Hashtable(test_data_sheet_path);
+	    	    
+	    LogIn_As_User(excellData.get("username"),excellData.get("password"));
+
+	}
+
+}

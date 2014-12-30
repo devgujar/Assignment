@@ -1,0 +1,26 @@
+package PracticeGenralProgramming;
+
+import java.io.*;
+import java.nio.channels.FileLockInterruptionException;
+import java.nio.file.FileAlreadyExistsException;
+	
+	public class Fileoi_readWrite_Simple {
+		
+		   public static void  main(String args[]) throws IOException
+		   {
+		      	  
+			  FileInputStream in = new FileInputStream("d:\\input.txt");   
+		      FileOutputStream out =new FileOutputStream("d:\\output.txt");	
+
+		      int c;
+				  while ((c = in.read()) != -1) 
+				  {
+					out.write(c);
+				  }
+
+				  in.close();
+				  out.close();
+
+		      }
+		   
+	}

@@ -1,0 +1,12 @@
+package TestSuite.TC007_Update_Profile;
+
+import org.junit.Test;
+
+public class TC007_Update_Profile {
+
+	@Test
+	public void TC007_Update_Profile() {
+		
+	}
+
+}

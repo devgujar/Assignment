@@ -1,0 +1,85 @@
+package TestSuite;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.bcel.generic.Select;
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+
+import LibraryPackage.Project_Interface_Definations;
+
+
+
+public class TC_578_Publisher_Verify_Proposal_Listing extends Project_Interface_Definations {
+		
+	
+  @Test
+  public void Verify_Proposal_Listing() throws Exception {
+	  	//LogIn_As_Publisher("test_bwilliams@businessinsider.com", "test");
+	  	LogIn_As_Publisher_Using_Admin_Rights("admin@pubmatic.com","test","24011");
+
+	  	driver.findElement(By.xpath("//a[text()='Proposals']")).click();	    
+	    
+	  //Verify Drop Down List
+	    //String[] Verify_DropDownList = {"Show All","Ongoing","Approved","Rejected","Deleted"};
+
+	    String[] Verify_DropDownList = {"Show All","Ongoing","Approved","Rejected","Deleted"};
+	    
+	    for (int i = 0; i <= 4; i++)
+	    {  	    	
+		    //System.out.println(i +" "+ "//span[@class='compSelectbox left spaced selectbox']//select//option[@value='"+i+"']");
+		    Assert.assertTrue(Verify_DropDownList[i]+"  Not present", Verify_DropDownList[i].equals(driver.findElement(By.xpath("//span[@class='compSelectbox left spaced selectbox']//select//option[@value='"+i+"']")).getText()));
+		  
+ 
+		    
+	    }
+	    
+	    
+	    //Verify total Proposal on Header and displayed on Pagination table
+	    String total_proposals=driver.findElement(By.xpath("//span[@class='compHTMLElement totalProp']")).getText();
+	    
+	    if(Integer.parseInt(total_proposals) < 25)
+			   Assert.assertTrue(" Total proposals Displayed on Header and Paging table does not match "+total_proposals,driver.getPageSource().contains("Displaying 1 to "+total_proposals+" of "+total_proposals+" records"));	
+		   else 
+			   Assert.assertTrue(" Total proposals Displayed on Header and Paging table does not match "+total_proposals, driver.getPageSource().contains("Displaying 1 to 25 of "+total_proposals+" records"));
+
+	    
+	    
+
+	    //Verify Proposal listing table Headers [** Need Code optimization using loop]
+	    String[] Verify_headers = {"Proposal Name","Buyer","Line Items","Date Created","Date Modified","Status"};
+	    for (int i = 0; i < Verify_headers.length; i++)
+	    {   	    	
+	    	Assert.assertTrue(Verify_headers[i]+ " Column header on Proposal listing table is not present", driver.findElement(By.xpath("//label[contains(., '"+Verify_headers[i]+"')]")).isDisplayed());
+	    }
+
+	    //Verify Buttons
+	    String[] Verify_Buttons = {"Delete","Clone","+ Add a New Proposal"};
+	    for (int i = 0; i < Verify_Buttons.length; i++)
+	    {   	    	
+		    Assert.assertTrue(Verify_Buttons[i]+" Button is not present", driver.findElement(By.xpath("//button[text()='"+Verify_Buttons[i]+"']")).isDisplayed());
+		    
+		    
+		    boolean  TestResult=isElementPresent(By.xpath("//button[text()='"+Verify_Buttons[i]+"']"));
+		    
+		    Assert.assertTrue(Verify_Buttons[i]+" Button is not present", TestResult);
+		    
+		    
+	    }
+
+	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	    //Verify texts on web page
+	    String[] Verify_Texts = {"Total Proposals","Outgoing","Incoming","Approved","Rejected"};
+	    for (int i = 0; i < Verify_Texts.length; i++)
+	    {  
+	    	Assert.assertTrue(Verify_Texts[i]+" text is not present on web page", driver.getPageSource().contains(Verify_Texts[i]));
+	    }
+
+        
+	    //Cleaning Code
+	    driver.quit();
+
+  }
+
+  
+}

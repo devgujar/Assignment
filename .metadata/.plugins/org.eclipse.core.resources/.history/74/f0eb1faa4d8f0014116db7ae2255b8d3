@@ -1,0 +1,40 @@
+package TestSuite.TC003_Login_With_Valid_UserName_and_Password;
+import java.io.IOException;
+
+import jxl.read.biff.BiffException;
+
+import org.openqa.selenium.By;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Hashtable;
+
+import junit.framework.Assert;
+import jxl.common.AssertionFailed;
+
+import org.apache.bcel.generic.Select;
+import org.apache.commons.io.FileUtils;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import LibraryPackage.Project_Interface_Definations;
+
+public class TC003_Login_With_Valid_UserName_and_Password extends Project_Interface_Definations{
+
+	@Test
+	public void TC003_Login_With_Valid_UserName_and_Password() throws BiffException, IOException {
+	 
+		start_setup() ;
+	    driver.findElement(By.xpath("//a[contains(.,'Login')]")).click();
+	    
+	    System.out.println("Entering UserName :"+"devgujar");
+	    driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("devgujar");
+	    
+	    System.out.println("Entering Password :"+"devgujar");
+	    driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("devgujar");;
+	    
+	    driver.findElement(By.name("wp-submit")).submit();
+	    
+	    String expected ="ERROR: The password you entered for the username devgujar is incorrect."
+	}
+
+}

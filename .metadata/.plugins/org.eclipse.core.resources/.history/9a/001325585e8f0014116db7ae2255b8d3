@@ -1,0 +1,9 @@
+package TestSuite.TC005_Check_Post_Updating_With_Media;
+
+public class TC005_Check_Post_Updating_With_Media {
+
+	public void TC005_Check_Post_Updating_With_Media() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

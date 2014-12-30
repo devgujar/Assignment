@@ -1,0 +1,17 @@
+package Practice_getter_setter;
+
+public class AcountDetails {
+	
+	private int amount;
+	
+	public void setAmount(int amt)
+	{
+		this.amount = amt;
+	}
+	
+	public int getAmount()
+	{
+		return this.amount;
+	}
+
+}

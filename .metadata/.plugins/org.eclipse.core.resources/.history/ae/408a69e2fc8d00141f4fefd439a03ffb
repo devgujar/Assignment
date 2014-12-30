@@ -1,0 +1,14 @@
+package LibraryPackage;
+
+import java.io.FileNotFoundException;
+
+public interface Project_Interface {
+	 public void start_setup();	 
+	 public void LogIn_As_Publisher(String UserName, String Password);
+	 public void LogIn_As_Publisher_Using_Admin_Rights(String UserName, String Password, String Publisher_Id);
+	 public void Select_Window_With_TitleName(String WindowTitleName);	 
+	 
+	 
+	 // Function to get data from XML
+	 public String getData (String FilePath, String VariableName) throws FileNotFoundException;
+}

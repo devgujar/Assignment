@@ -1,0 +1,11 @@
+package LibraryPackage;
+
+import java.io.FileNotFoundException;
+
+public interface Project_Interface {
+	 public void start_setup();	 
+	 public void LogIn_As_User(String UserName, String Password);
+ 
+	 // Function to get data from XML
+	 public String GetExcell_Varible_Value (String FilePath, String VariableName) throws FileNotFoundException;
+}

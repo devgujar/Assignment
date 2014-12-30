@@ -1,0 +1,41 @@
+package TestSuite.RuleMgr;
+
+/*
+ * Log in as Publisher using Admin details and Verify Deal listing UI 
+ */
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import java.util.List;
+import org.junit.After;
+import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.NoSuchElementException;
+import LibraryPackage.Project_Interface_Definations;
+
+public class TC_Publisher_With_Admin_Rights_VerifyEditMultipleRuleErrorMessage extends Project_Interface_Definations{
+	 
+@Test
+public void Verify_Deal_Listing_Page() throws Exception {
+			LogIn_As_Publisher_Using_Admin_Rights("admin@pubmatic.com","test","24011"); 
+			
+			//Navigate to Rule Manager
+			driver.findElement(By.linkText("Rules")).click();
+						
+			//Verify Edit Multiple rule error message: Please select a rule to Edit			
+			driver.findElement(By.xpath("//a[@id='ruleType_msa_1']")).click();
+			
+			driver.findElement(By.xpath("//a[@id='editMultiple']")).click();
+			String ERROR_MESSAGE= driver.findElement(By.xpath("//div[@class='PMUI_message_content']")).getText();
+			Assert.assertTrue("Edit rule error message is not matching ", ERROR_MESSAGE.equals("Please select a rule to Edit"));
+			
+			
+		    
+			//Cleaning Code
+			driver.quit();
+	}
+}
+	 
+

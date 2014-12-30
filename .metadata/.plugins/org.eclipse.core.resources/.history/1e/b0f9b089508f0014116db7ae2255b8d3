@@ -1,0 +1,12 @@
+package TestSuite.TC004_Login_With_InValid_UserName_and_Password;
+
+import org.testng.annotations.Test;
+
+public class TC004_Login_With_InValid_UserName_and_Password {
+
+	@org.junit.Test
+	public void TC004_Login_With_InValid_UserName_and_Password() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

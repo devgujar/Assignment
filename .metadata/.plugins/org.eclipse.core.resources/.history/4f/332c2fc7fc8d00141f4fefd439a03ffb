@@ -1,0 +1,19 @@
+package Experimental.ReadXmlData;
+
+import java.io.FileNotFoundException;
+import java.sql.*;
+
+import org.junit.Test;
+
+import LibraryPackage.*;
+
+public class ReadData_FromXml extends Project_Interface_Definations{
+	
+	@Test
+	public void ReadDataFromXml()  {
+		
+		String str = getData("ReadData_FromXml.xml", "email-id");
+		
+		System.out.println(str);
+}
+}

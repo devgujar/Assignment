@@ -1,0 +1,108 @@
+package TestSuite;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import com.google.common.base.Predicate;
+
+import LibraryPackage.Project_Interface_Definations;
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+
+import org.junit.*;
+
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Publisher_Login_Create_LineItem  {
+	
+	  private WebDriver driver;
+	  private String baseUrl;
+	  private boolean acceptNextAlert = true;
+	  private StringBuffer verificationErrors = new StringBuffer();
+
+	  @Before
+	  public void setUp() throws Exception {
+	    driver =new FirefoxDriver();    
+	    driver.get("http://172.16.4.153:8086/AdGainMgmt/publisher/?viewName=LineItemList");
+	    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+	  }
+
+	  @Test
+	  public void testUntitled() throws Exception {
+
+	    driver.findElement(By.name("email")).clear();
+	    driver.findElement(By.name("email")).sendKeys("test_kanson@triadretail.com");
+	    driver.findElement(By.name("password")).clear();
+	    driver.findElement(By.name("password")).sendKeys("test");
+	    driver.findElement(By.name("submit")).click();
+	    
+
+		for (int j=442; j<1200; j++)
+		{
+		    driver.findElement(By.cssSelector("button.compButton.green")).click();
+		    driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		    
+		    driver.findElement(By.xpath("(//a[contains(text(),'Inventory')])[4]")).click();	    
+		    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		    		    
+		    for (int i=1;i<22;i++)		
+		    {	
+			    driver.findElement(By.xpath("(//span[@class='compCheckbox tagCloudItemHeader'])["+ i +"]//input")).click(); //select Adtag	
+			    driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		    }
+		    
+		    driver.findElement(By.xpath("(//a[contains(text(),'Geography')])[3]")).click();		    
+		    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		    
+		    driver.findElement(By.xpath("(//label[contains(.,'+')][@class='compLabel selectIconButton'])["+j+"]")).click();	// modify /div[1]
+		    		    
+		    driver.findElement(By.linkText("Advanced")).click();
+		    driver.findElement(By.xpath("(//button[@type='button'])[31]")).click();
+		    driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		    Thread.sleep(15000);
+		    
+		    System.out.println(j);
+	    
+	}	    
+	  }
+
+	  private boolean isElementPresent(By by) {
+	    try {
+	      driver.findElement(by);
+	      return true;
+	    } catch (NoSuchElementException e) {
+	      return false;
+	    }
+	  }
+	  private boolean isAlertPresent() {
+	    try {
+	      driver.switchTo().alert();
+	      return true;
+	    } catch (NoAlertPresentException e) {
+	      return false;
+	    }
+	  }
+	  private String closeAlertAndGetItsText() {
+	    try {
+	      Alert alert = driver.switchTo().alert();
+	      String alertText = alert.getText();
+	      if (acceptNextAlert) {
+	        alert.accept();
+	      } else {
+	        alert.dismiss();
+	      }
+	      return alertText;
+	    } finally {
+	      acceptNextAlert = true;
+	    }
+	  }
+
+  
+}

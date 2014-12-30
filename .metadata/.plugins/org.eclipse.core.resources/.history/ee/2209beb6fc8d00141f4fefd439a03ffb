@@ -1,0 +1,34 @@
+package TestSuite;
+
+import java.util.concurrent.TimeUnit;
+
+import org.apache.bcel.generic.Select;
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import LibraryPackage.Project_Interface_Definations;
+
+public class TC_595_Publisher_CreateProposal_NameFieldValidation extends Project_Interface_Definations {
+
+@Test
+  public void CreateProposal_NameFieldValidation() throws Exception {
+	  	//LogIn_As_Publisher("test_bwilliams@businessinsider.com", "test");
+		LogIn_As_Publisher_Using_Admin_Rights("admin@pubmatic.com","test","24011");
+			    
+	    driver.findElement(By.xpath("//a[text()='Proposals']")).click();		
+		driver.findElement(By.xpath("//button[text()='+ Add a New Proposal']")).click();
+		
+		driver.findElement(By.name("description")).sendKeys("TEST_DESCRIPTION");
+		driver.findElement(By.name("terms")).sendKeys("TEST_TERM");		
+		driver.findElement(By.xpath("//button[text()='Next']")).click();		
+		String AlertMssg = driver.findElement(By.xpath("//label[@class='compLabel msgHolder']")).getText();		
+		Assert.assertTrue("Error: Empty Proposal name error msg not displayed",AlertMssg.contains("Proposal name cannot be empty and can be maximum 256	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	    
+	    //Cleaning Code
+	    driver.quit();
+
+  }
+
+  
+}

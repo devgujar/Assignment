@@ -1,0 +1,37 @@
+package TestSuite.RuleMgr;
+
+/*
+ * Log in as Publisher using Admin details and Verify Deal listing UI 
+ */
+
+import java.util.concurrent.TimeUnit;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+
+import LibraryPackage.Project_Interface_Definations;
+
+public class TC_Publisher_With_Admin_Rights_VerifyCreateCopyRuleErrorMessage extends Project_Interface_Definations{
+	 
+	@Test
+	 public void Verify_Deal_Listing_Page() throws Exception {
+			LogIn_As_Publisher_Using_Admin_Rights("admin@pubmatic.com","test","24011"); 			
+			//Navigate to Rule Manager
+			driver.findElement(By.linkText("Rules")).click();
+			
+			//Verify Delete rule error message: Please select a rule to Delete
+			driver.findElement(By.xpath("//a[@id='createCopy']")).click();
+			String ERROR_MESSAGE= driver.findElement(By.xpath("//div[@class='PMUI_message_content']")).getText();
+			Assert.assertTrue("Create a Copy error message is not matching ", ERROR_MESSAGE.equals("Please select a rule to Create a Copy Of"));
+					
+			
+		    //Cleaning Code
+			driver.quit();
+	}
+	
+	    
+}
+	 
+

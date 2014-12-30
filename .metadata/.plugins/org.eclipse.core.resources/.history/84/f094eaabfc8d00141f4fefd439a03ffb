@@ -1,0 +1,10 @@
+package Practice_Inheritance;
+
+public class MyBaseClass{
+
+	public int sum(int x)
+	{
+		return x;
+	}
+
+}

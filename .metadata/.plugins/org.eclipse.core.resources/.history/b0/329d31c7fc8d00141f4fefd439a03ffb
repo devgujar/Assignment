@@ -1,0 +1,71 @@
+package Experimental;
+
+import java.util.Random;
+import java.util.*;
+import java.text.*;
+import java.util.concurrent.TimeUnit;
+import org.apache.bcel.generic.Select;
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+
+import LibraryPackage.Project_Interface_Definations;
+
+public class Publisher_CreateProposal_WhiteListingDisabled extends Project_Interface_Definations {
+
+@Test
+  public void CreateProposal_NameFieldValidation() throws Exception {
+	  	LogIn_As_Publisher("test_bwilliams@businessinsider.com", "test");	  	  	
+	    driver.findElement(By.xpath("//a[@id='pmptablink']")).click();
+	    //driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);    
+	    driver.findElement(By.xpath("//a[@href='?viewName=dealManagement']")).click(); 
+	    
+	    driver.findElement(By.xpath("//a[text()='Proposals']")).click();
+		driver.findElement(By.xpath("//button[text()='+ Add a New Proposal']")).click();		
+		Assert.assertTrue("Text 'Add a New Proposal' is not present", (driver.findElement(By.xpath("//label[@class='compLabel header1']")).getText()).equals("Add a New Proposal"));	
+		
+		int randNum = (int) (Math.random() * 5000);
+		driver.findElement(By.name("name")).sendKeys("TEST_PROPOSAL_"+randNum);
+		driver.findElement(By.name("description")).sendKeys("TEST_DESCRIPTION_"+randNum);
+		driver.findElement(By.name("terms")).sendKeys("TEST_TERM_"+randNum);		
+		driver.findElement(By.xpath("//button[text()='Next']")).click();			 
+	    driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
+
+	    // Select from existing line Items
+	    driver.findElement(By.xpath("//a[text()='Select from Existing Line Items']")).click();
+	    	    
+	    // Select First Line Item from existing line Items	    
+	    driver.findElement(By.xpath("(//div[@class='innerDiv']//input[@class='checkbox'])[1]")).click();
+	   
+	    driver.findElement(By.xpath(("(//span[@class='compTextField']//input[@type='text'])[3]"))).sendKeys("5");
+	    driver.findElement(By.xpath("//span[@class='compTextField num-med margin-left-4']//input")).sendKeys("5");
+	    
+	    	Date dNow = new Date( );
+	    	SimpleDateFormat ft = new SimpleDateFormat ("MM-dd-yyyy");
+	    	String todays_date = ft.format(dNow);
+	    	System.out.println(todays_date);
+	    	
+	    driver.findElement(By.xpath("//input[@placeholder='Start Date']")).sendKeys(todays_date);	    
+	    driver.findElement(By.xpath("//input[@id='compId72']")).click();	    
+	    driver.findElement(By.xpath("(//button[text()='Next'])[2]")).click();
+
+	    //Select ATD
+	    //driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
+	    //driver.findElement(By.xpath("(//label[Text()='Turn']/..//..//label[@class='compLabel selectIconButton'])[1]")).click();
+	    //driver.findElement(By.xpath("(//label[Text()='Turn'])[1]//..//..")).findElement(By.xpath("//label[Text()='+']")).click();;
+	    
+	    //Select Advertiser 
+	    //driver.findElement(By.xpath("//button[Text()='Edit Advertisers']")).click();
+	    driver.findElement(By.linkText("Edit Advertisers"));
+	    driver.findElement(By.xpath("(((//div[@class='body'])[11]//label)[@class='compLabel'])["+randNum+"]")).click();
+	    driver.findElement(By.xpath("(//button[Text()='Done'])[2]")).click();
+	    driver.findElement(By.xpath("//button[Text()='Send this Proposal']")).click();
+	    
+	    //Cleaning Code
+	    driver.quit();
+
+  }
+
+  
+}

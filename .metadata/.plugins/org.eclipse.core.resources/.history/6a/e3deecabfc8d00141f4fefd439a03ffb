@@ -1,0 +1,13 @@
+package Practice_Inheritance;
+
+public class Parent extends Child{
+	
+	
+	public static int MySum(int x, int y){
+		System.out.println("My SUM In Parent");
+		
+		return x + y + 2;
+	}
+		
+	
+}

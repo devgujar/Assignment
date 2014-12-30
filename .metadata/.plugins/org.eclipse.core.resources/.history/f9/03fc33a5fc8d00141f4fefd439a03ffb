@@ -1,0 +1,11 @@
+package Practice;
+public class Main_Class {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Advance_Calculator ac = new Advance_Calculator();
+				
+		System.out.println("Sum:"+ac.sum(10, 15));		
+	}
+}

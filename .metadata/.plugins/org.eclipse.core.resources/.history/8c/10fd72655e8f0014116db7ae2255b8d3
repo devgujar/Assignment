@@ -1,0 +1,13 @@
+package TestSuite.TC005_Check_Post_Updating_With_Media;
+import org.junit.Test;
+
+import LibraryPackage.Project_Interface_Definations;
+
+public class TC005_Check_Post_Updating_With_Media extends Project_Interface_Definations{
+
+	@Test
+	public void TC005_Check_Post_Updating_With_Media() {
+		
+	}
+
+}
