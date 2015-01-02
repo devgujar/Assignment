@@ -1,4 +1,0 @@
-Assignment
-==========
-
-rtcamp_Assignment
