@@ -1,0 +1,29 @@
+package TestSuite.test_demo;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+import junit.framework.Assert;
+
+import org.apache.bcel.generic.Select;
+import org.apache.commons.io.FileUtils;
+import org.junit.Test;
+import org.openqa.selenium.By;
+
+import LibraryPackage.Project_Interface_Definations;
+
+public class test_demo extends Project_Interface_Definations{
+	
+	@Test
+	public void Get_register_on_rtMedia() throws Exception {
+
+	    final String pathDir = new java.io.File("").getAbsolutePath();
+
+	    final String pathFile = pathDir + "\\src\\TestSuite\\TC005_Check_Post_Updating_With_Media\\Koala.jpg";
+	    // End find path url of files to upload
+	    //driver.findElement(By.id("upload1")).sendKeys(pathFile);
+		System.out.println(pathFile);
+		
+	  }
+
+}

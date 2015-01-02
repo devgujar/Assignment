@@ -1,0 +1,15 @@
+package LibraryPackage;
+
+import org.openqa.selenium.By;
+
+public class ActivityPageBuilder {
+
+	public ActivityPageBuilder() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void setName(String Name) {
+		driver.findElement(By.id("field_1")).clear();
+		driver.findElement(By.id("field_1")).sendKeys(Name);
+	}
+}

@@ -1,0 +1,9 @@
+package LibraryPackage;
+
+public class ActivityPageBuilder {
+
+	public ActivityPageBuilder() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,85 @@
+package TestSuite.TC006_CheckPrivacy_Settings_for_Post;
+import java.io.IOException;
+import java.util.Hashtable;
+import java.util.concurrent.TimeUnit;
+
+import junit.framework.Assert;
+import jxl.read.biff.BiffException;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+
+import LibraryPackage.Project_Interface_Definations;
+import LibraryPackage.rtmediaPageBrowser;
+
+/*
+ * 1. Create Private Post.
+ * 2. Create Friends post.
+ * 3. Create Logged in Users post.
+ * 4. Create Public Post.
+ * 5. Visit profile page as guest user(not logged in user).
+ * 6. verify that the public post is displayed.
+ * 7. verify that the Friends post is not displayed. 
+ * 8. verify that the Logged in Users is not displayed.
+ * 9. verify that the private post is not displayed.
+ */
+
+
+public class TC006_CheckPrivacy_Settings_for_Post extends Project_Interface_Definations{
+
+	@Test
+	public void TC006_CheckPrivacy_Settings_for_Post() throws BiffException, IOException {
+		
+		double random_number= Math.random();
+		String public_post ="This is public post_"+random_number;
+		String Friends_post ="This is Friends post_"+random_number;
+		String Logged_in_Users_post ="This is Logged in Users post_"+random_number;
+		String private_post ="This is private post_"+random_number;
+
+		// Create Page Object
+		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();
+		
+		//Start Home Page
+		rtmediaPage.Start_Home_Page();
+		
+		//Navigate to LogIn Window
+		rtmediaPage.Navigate_to_Login_Window();
+
+		//Get Test case Data
+		
+	    Hashtable<String, String> excellData = GetExcell_Data_As_Hashtable("TC006_CheckPrivacy_Settings_for_Post.xls");	    	    
+
+	    LogIn_As_User(excellData.get("username"),excellData.get("password"));
+
+
+	    rtmediaPage.Navigate_to_Actvity();
+
+	    // * 1. Create Private Post.
+	    rtmediaPage.Publish_privatePost(private_post);
+
+	    //* 2. Create Friends post.
+	    rtmediaPage.Publish_FriendsPost(Friends_post);
+	    
+	    //  * 3. Create Logged in Users post.
+	    rtmediaPage.Publish_Logged_in_UsersPost(Logged_in_Users_post);
+	    
+	    //* 4. Create Public Post
+	    rtmediaPage.Publish_publicPost(public_post);
+
+	    // * 5. Visit profile page as guest user(not logged in user).
+	    rtmediaPage.logout();
+	    rtmediaPageBrowser.driver.get(rtmediaPageBrowser.baseUrl+"/members/"+excellData.get("username"));
+
+	    // * 6. verify that the public post is displayed.
+	    Assert.assertTrue("Test Failed: Public Post is not Visible", rtmediaPage.VerifyText(public_post));
+	    
+	    // * 7. verify that the Friends post is not displayed.
+	    Assert.assertFalse("Test Failed: Friends Post is Visible", rtmediaPage.VerifyText(Friends_post));
+	    
+	    // * 8. verify that the Logged in Users is not displayed.
+	    Assert.assertFalse("Test Failed: Logged in Users Post is Visible", rtmediaPage.VerifyText(Logged_in_Users_post));
+	    
+	    // * 9. verify that the private post is not displayed.
+	    Assert.assertFalse("Test Failed: Private Post is Visible", rtmediaPage.VerifyText(private_post));
+	}
+}

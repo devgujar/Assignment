@@ -1,0 +1,44 @@
+package TestSuite.TC003_Login_With_Valid_UserName_and_Password;
+import java.io.IOException;
+
+import jxl.read.biff.BiffException;
+
+import org.openqa.selenium.By;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Hashtable;
+
+import junit.framework.Assert;
+import jxl.common.AssertionFailed;
+
+import org.apache.bcel.generic.Select;
+import org.apache.commons.io.FileUtils;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import LibraryPackage.Project_Interface_Definations;
+import LibraryPackage.rtmediaPageBrowser;
+
+public class TC003_Login_With_Valid_UserName_and_Password extends Project_Interface_Definations{
+
+	@Test
+	public void TC003_Login_With_Valid_UserName_and_Password() throws BiffException, IOException {
+	
+	    Hashtable<String, String> excellData = GetExcell_Data_As_Hashtable("TC003_Login_With_Valid_UserName_and_Password.xls");	    	    	 
+		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();
+		
+		//Start Home Page
+		rtmediaPage.Start_Home_Page();
+		
+		//Navigate to LogIn Window
+		rtmediaPage.Navigate_to_Login_Window();
+		
+		//Login with valid User Name and Password
+		rtmediaPage.LogIn_As_User(excellData.get("username"),excellData.get("password"));
+	    	
+		// Verify String..."Welcome To rtDating" 
+	    Assert.assertTrue(rtmediaPage.VerifyText("Welcome To rtDating") );
+	    	    
+	}
+
+}

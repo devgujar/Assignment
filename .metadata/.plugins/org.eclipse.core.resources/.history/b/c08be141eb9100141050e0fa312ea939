@@ -1,0 +1,47 @@
+package LibraryPackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import LibraryPackage.*;
+
+public class ProfileBuilder {
+	WebDriver driver =rtmediaPageBrowser.driver;
+	
+	public ProfileBuilder() {				
+		driver.findElement(By.xpath("//li[@id='edit-personal-li']//a")).click();
+	}
+	
+
+	public void setName(String Name) {
+		driver.findElement(By.id("field_1")).clear();
+		driver.findElement(By.id("field_1")).sendKeys(Name);
+	}
+
+	public void setCity(String city_name) {
+		driver.findElement(By.id("field_2")).clear();
+		driver.findElement(By.id("field_2")).sendKeys(city_name);
+	}
+
+	public void setGender(String day, String month,String year) {
+
+	    driver.findElement(By.xpath("//select[@id='field_4_day']//option[@value='"+day+"']")).click();
+	    driver.findElement(By.xpath("//select[@id='field_4_month']//option[@value='"+month+"']")).click();
+	    driver.findElement(By.xpath("//select[@id='field_4_year']//option[@value='"+year+"']")).click();
+
+	}
+
+	public void setBirthdate(String gender) {
+	
+	}
+	
+	public void click_Submit() {
+	
+	}
+
+	
+	//
+	
+
+	
+}

@@ -17,24 +17,31 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import LibraryPackage.Project_Interface_Definations;
+import LibraryPackage.rtmediaPageBrowser;
 
-public class TC003_Login_With_Valid_UserName_and_Password extends Project_Interface_Definations{
+public class TC003_Login_With_Valid_UserName_and_Password{
 
 	@Test
 	public void TC003_Login_With_Valid_UserName_and_Password() throws BiffException, IOException {
-	 
-		start_setup() ;
+	
+	    	    	 
+		// Create Page Object
+		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();
 		
+		//Get Test case Data
+		Hashtable<String, String> excellData = rtmediaPage.GetExcell_Data_As_Hashtable("TC003_Login_With_Valid_UserName_and_Password.xls");
+		
+		//Start Home Page
+		rtmediaPage.Start_Home_Page();
+						
 		//Navigate to LogIn Window
-		driver.findElement(By.xpath("//a[contains(.,'Login')]")).click();
-	    String test_data_sheet_path ="src/TestSuite/TC003_Login_With_Valid_UserName_and_Password/TC003_Login_With_Valid_UserName_and_Password.xls";
-	    Hashtable<String, String> excellData = GetExcell_Data_As_Hashtable(test_data_sheet_path);
-	    	    
-	    LogIn_As_User(excellData.get("username"),excellData.get("password"));
-	    	    
-	    String expected = "Welcome To rtDating";
-	    String actual= driver.findElement(By.xpath("//h2[contains(.,'Welcome To rtDating')]")).getText();
-	    Assert.assertTrue("Test case validation failed.", expected.equals(actual));
+		rtmediaPage.Navigate_to_Login_Window();
+		
+		//Login with valid User Name and Password
+		rtmediaPage.LogIn_As_User(excellData.get("username"),excellData.get("password"));
+	    	
+		// Verify String..."Welcome To rtDating" 
+	    Assert.assertTrue(rtmediaPage.VerifyText("Welcome To rtDating"));
 	    
 	}
 

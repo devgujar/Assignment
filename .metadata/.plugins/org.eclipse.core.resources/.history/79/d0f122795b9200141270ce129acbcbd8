@@ -1,0 +1,50 @@
+package TestSuite.TC005_Check_Post_Updating_With_Media;
+import LibraryPackage.*;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.reporters.jq.Main;
+
+import java.io.IOException;
+import java.util.Hashtable;
+import java.util.concurrent.TimeUnit;
+
+import javax.print.DocFlavor.URL;
+
+import jxl.read.biff.BiffException;
+
+public class TC005_Check_Post_Updating_With_Media {
+
+	@Test
+	public void TC005_Check_Post_Updating_With_Media() throws BiffException, IOException, InterruptedException {
+		
+		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();		
+		
+		// fetch test data from excel sheet
+	    Hashtable<String, String> excellData = rtmediaPage.GetExcell_Data_As_Hashtable("TC005_Check_Post_Updating_With_Media.xls");
+	
+		//Start Home Page
+		rtmediaPage.Start_Home_Page();
+		
+		//Navigate to LogIn Window
+		rtmediaPage.Navigate_to_Login_Window();		
+		
+		rtmediaPage.LogIn_As_User(excellData.get("username"),excellData.get("password"));
+		
+		rtmediaPage.Navigate_to_Actvity();
+		rtmediaPageBrowser.driver.findElement(By.xpath("//div[@id='rtmedia-whts-new-upload-container']//input[@type='file']")).click();
+
+	    
+	    // Find path url of files to upload
+	    final String pathFile = new java.io.File("").getAbsolutePath()+"\\src\\TestSuite\\TC005_Check_Post_Updating_With_Media\\Koala.jpg";				
+		Runtime.getRuntime().exec("src/LibraryPackage/AutoItUpload.exe "+pathFile);
+		Thread.sleep(5000);
+
+		//Set post text
+		
+		rtmediaPage.Publish_publicPost("test post with media as jpg");
+		Thread.sleep(2000);
+		rtmediaPageBrowser.driver.findElement(By.id("aw-whats-new-submit")).click();
+	}
+
+}

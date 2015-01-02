@@ -2,8 +2,8 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="237" key="DIALOG_WIDTH"/>
-		<item value="294" key="DIALOG_Y_ORIGIN"/>
-		<item value="133" key="DIALOG_X_ORIGIN"/>
+		<item value="112" key="DIALOG_Y_ORIGIN"/>
+		<item value="941" key="DIALOG_X_ORIGIN"/>
 		<item value="357" key="DIALOG_HEIGHT"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 	</section>
@@ -13,12 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="test_data_sheet_path" key="selection"/>
+		<item value="driver." key="selection"/>
 		<list key="findhistory">
+			<item value="rtmediaPageBrowser.driver."/>
+			<item value="rtmediaPage."/>
 			<item value="&quot;src/TestSuite/Get_register_on_rtMedia/Get_register_on_rtMedia.xls&quot;"/>
 			<item value="PracticeGenralProgramming"/>
 		</list>
 		<list key="replacehistory">
+			<item value="driver."/>
+			<item value=""/>
 			<item value="test_data_sheet_path"/>
 		</list>
 	</section>

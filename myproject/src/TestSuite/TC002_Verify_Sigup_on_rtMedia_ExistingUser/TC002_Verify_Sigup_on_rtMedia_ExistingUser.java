@@ -12,45 +12,33 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-import LibraryPackage.Project_Interface_Definations;
+import LibraryPackage.*;
 
-public class TC002_Verify_Sigup_on_rtMedia_ExistingUser extends Project_Interface_Definations{
+/*
+ * Test Objective  : Check the process of registration with already registered user name or email id 
+ * Expected Result :
+ * 
+ */
+public class TC002_Verify_Sigup_on_rtMedia_ExistingUser {
 	
 	@Test
 	public void TC002_Verify_Sigup_on_rtMedia_ExistingUser() throws Exception {
 		
-			start_setup() ;
+		
+		// Create Page Object
+		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();		
 			
-		    driver.findElement(By.xpath("//a[contains(.,'Login')]")).click();
-		    driver.findElement(By.xpath("//a[contains(.,'Register')]")).click();
-		    
-			String test_data_sheet_path="src/TestSuite/TC002_Verify_Sigup_on_rtMedia_ExistingUser/TC002_Verify_Sigup_on_rtMedia_ExistingUser.xls";
-			Hashtable<String, String> excellData =GetExcell_Data_As_Hashtable(test_data_sheet_path);
-					
-			System.out.println("Entering Signup User name:"+excellData.get("signup_username"));
-		    driver.findElement(By.id("signup_username")).sendKeys(excellData.get("signup_username"));		    
-		    System.out.println("Entering Signup Email:"+excellData.get("signup_email"));
-			driver.findElement(By.id("signup_email")).sendKeys(excellData.get("signup_email"));
-			
-		    driver.findElement(By.id("signup_password")).sendKeys(excellData.get("signup_password"));		    
-		    driver.findElement(By.id("signup_password_confirm")).sendKeys(excellData.get("signup_password"));
-		    driver.findElement(By.id("field_1")).sendKeys(excellData.get("Name"));
-		    driver.findElement(By.id("field_2")).sendKeys(excellData.get("city"));
-		    driver.findElement(By.xpath("//option[@value='"+  excellData.get("gender") + "']")).click();		    
-		    driver.findElement(By.xpath("//select[@id='field_4_day']//option[@value='"+excellData.get("birthdate_field_4_day")+"']")).click();  
-		    driver.findElement(By.xpath("//select[@id='field_4_month']//option[@value='"+excellData.get("birthdate_field_4_month")+"']")).click();  
-		    driver.findElement(By.xpath("//select[@id='field_4_year']//option[@value='"+excellData.get("birthdate_field_4_year")+"']")).click();  
-	    	driver.findElement(By.name("bp-security-check")).sendKeys(String.valueOf(Get_security_Answer_for_SignUp_Page()));
-	    	driver.findElement(By.xpath("//input[@id='signup_submit']")).click();	    		    
+		//Start Home Page
+		rtmediaPage.Start_Home_Page();
+		
+		// Navigate to Sign Up page
+		rtmediaPage.Navigate_to_SignUp_Page();
+		
+		// Fetch data from excelSheet and fill sign up form and click submit.		    
+		rtmediaPage.Enter_SignUp_form_details_from_excell_sheet("TC002_Verify_Sigup_on_rtMedia_ExistingUser.xls");		    
 	    	
-	    	//Verify success Message
-	    	String expected="Sorry, that username already exists!";
-	    	String actual=driver.findElement(By.xpath("//div[@class='error'][contains(.,'username')]")).getText();
-	    	Assert.assertFalse(expected, expected.equals(actual));
-	    		    	
-	    	 expected="Sorry, that email address is already used!";
-	    	 actual=driver.findElement(By.xpath("//div[@class='error'][contains(.,'email')]")).getText();	    	
-	    	 Assert.assertFalse(expected, expected.equals(actual));
-	  }
-
+		//Verify message on Sign Up completion		
+		Assert.assertTrue(rtmediaPage.VerifyText("Sorry, that username already exists!") || rtmediaPage.VerifyText("Sorry, that email address is already used!"));
+	  
+	}
 }

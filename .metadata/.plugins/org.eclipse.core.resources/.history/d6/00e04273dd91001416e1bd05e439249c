@@ -1,0 +1,48 @@
+package TestSuite.TC002_Verify_Sigup_on_rtMedia_ExistingUser;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Hashtable;
+
+import junit.framework.Assert;
+import jxl.common.AssertionFailed;
+
+import org.apache.bcel.generic.Select;
+import org.apache.commons.io.FileUtils;
+import org.junit.Test;
+import org.openqa.selenium.By;
+
+import LibraryPackage.Project_Interface_Definations;
+import LibraryPackage.rtmediaPageBrowser;
+
+public class TC002_Verify_Sigup_on_rtMedia_ExistingUser extends Project_Interface_Definations{
+	
+	@Test
+	public void TC002_Verify_Sigup_on_rtMedia_ExistingUser() throws Exception {
+		
+		rtmediaPageBrowser rtmediaPage= new rtmediaPageBrowser();
+		rtmediaPage.Start_Home_Page();
+		rtmediaPage.Navigate_to_Login_Window();
+		    
+		String test_data_sheet_path="src/TestSuite/TC002_Verify_Sigup_on_rtMedia_ExistingUser/TC002_Verify_Sigup_on_rtMedia_ExistingUser.xls";
+		Hashtable<String, String> excellData =GetExcell_Data_As_Hashtable(test_data_sheet_path);
+	
+		rtmediaPage.Enter_SignUp_form_details_from_excell_sheet(test_data_sheet_path);		    
+	    	
+		// Verify  Message
+		
+		Assert.assertTrue(rtmediaPage.VerifyText("Sorry, that username already exists!"));
+		Assert.assertTrue(rtmediaPage.VerifyText("Sorry, that email address is already used!"));
+		
+		
+
+	    	String expected="Sorry, that username already exists!";
+	    	String actual=driver.findElement(By.xpath("//div[@class='error'][contains(.,'username')]")).getText();
+	    	Assert.assertFalse(expected, expected.equals(actual));
+	    		    	
+	    	 expected="Sorry, that email address is already used!";
+	    	 actual=driver.findElement(By.xpath("//div[@class='error'][contains(.,'email')]")).getText();	    	
+	    	 Assert.assertFalse(expected, expected.equals(actual));
+	  }
+
+}

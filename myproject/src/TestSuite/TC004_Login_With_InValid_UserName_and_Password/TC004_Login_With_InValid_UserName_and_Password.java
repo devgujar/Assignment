@@ -3,29 +3,34 @@ package TestSuite.TC004_Login_With_InValid_UserName_and_Password;
 import java.io.IOException;
 import java.util.Hashtable;
 import LibraryPackage.Project_Interface_Definations;
+import LibraryPackage.rtmediaPageBrowser;
 import junit.framework.Assert;
 import jxl.read.biff.BiffException;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import LibraryPackage.Project_Interface_Definations;
+import LibraryPackage.*;
 
-public class TC004_Login_With_InValid_UserName_and_Password extends Project_Interface_Definations{
+public class TC004_Login_With_InValid_UserName_and_Password {
 
 	@Test
 	public void TC004_Login_With_InValid_UserName_and_Password() throws BiffException, IOException {
-	
-		start_setup() ;
+
+	    // Create page Object
+	    rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();
+
+		//Get Test case Data
+	    Hashtable<String, String> excellData = rtmediaPage.GetExcell_Data_As_Hashtable("TC004_Login_With_InValid_UserName_and_Password.xls");
+				
+		//Start Home Page
+		rtmediaPage.Start_Home_Page();
 		
 		//Navigate to LogIn Window
-	    driver.findElement(By.xpath("//a[contains(.,'Login')]")).click();
-	    String test_data_sheet_path ="src/TestSuite/TC004_Login_With_InValid_UserName_and_Password/TC004_Login_With_InValid_UserName_and_Password.xls";
-	    Hashtable<String, String> excellData = GetExcell_Data_As_Hashtable(test_data_sheet_path);
-	    
-	    LogIn_As_User(excellData.get("username"),excellData.get("password"));	    
-	    
-	    String expected = "ERROR";
-	    String actual= driver.findElement(By.xpath("//div[@id='login_error']//strong[contains(.,'ERROR')]")).getText();	    
-	    Assert.assertTrue("Test case validation failed.", expected.equals(actual));
+		rtmediaPage.Navigate_to_Login_Window();
+		
+		//Login with Invalid User Name and Password
+		rtmediaPage.LogIn_As_User(excellData.get("username"),excellData.get("password"));
+	    	    
+	    Assert.assertTrue(rtmediaPage.VerifyText("ERROR"));
 		
 	}
 

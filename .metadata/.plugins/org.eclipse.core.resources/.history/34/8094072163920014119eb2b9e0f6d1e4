@@ -1,0 +1,14 @@
+package LibraryPackage;
+import org.openqa.selenium.By;
+
+public class ActivityPageBuilder {
+
+	public ActivityPageBuilder() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void Open_File_Upload_Dialog() {
+		rtmediaPageBrowser.driver.findElement(By.xpath("//div[@id='rtmedia-whts-new-upload-container']//input[@type='file']")).click();
+
+	}
+}
