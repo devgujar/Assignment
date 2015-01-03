@@ -1,6 +1,7 @@
 package TestSuite.TC003_Login_With_Valid_UserName_and_Password;
 import java.io.IOException;
 
+
 import jxl.read.biff.BiffException;
 
 import org.openqa.selenium.By;
@@ -16,8 +17,7 @@ import org.apache.bcel.generic.Select;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import LibraryPackage.Project_Interface_Definations;
-import LibraryPackage.rtmediaPageBrowser;
+import LibraryPackage.*;
 
 public class TC003_Login_With_Valid_UserName_and_Password{
 
@@ -42,6 +42,9 @@ public class TC003_Login_With_Valid_UserName_and_Password{
 	    	
 		// Verify String..."Welcome To rtDating" 
 	    Assert.assertTrue(rtmediaPage.VerifyText("Welcome To rtDating"));
+	    
+    	//Clean up code
+    	rtmediaPage.Close();
 	    
 	}
 

@@ -1,0 +1,18 @@
+package LibraryPackage;
+
+public class SignUpPageBuilder {
+
+	public void setUsername(){
+		
+	}
+
+	public void setPassword(){
+		
+	}
+	public void setPassword(){
+		
+	}
+
+	signup_password_confirm
+	
+}

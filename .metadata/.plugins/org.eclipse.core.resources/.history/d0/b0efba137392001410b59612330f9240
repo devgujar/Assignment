@@ -1,0 +1,26 @@
+package LibraryPackage;
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+
+public class ActivityPageBuilder {
+
+	public ActivityPageBuilder() {
+
+	}
+
+	public void Open_File_Upload_Dialog() {
+		rtmediaPageBrowser.driver.findElement(By.xpath("//div[@id='rtmedia-whts-new-upload-container']//input[@type='file']")).click();
+	}
+	
+	public void Upload_File(String FilePath) throws IOException, InterruptedException {
+		
+		rtmediaPageBrowser.driver.findElement(By.xpath("//div[@id='rtmedia-whts-new-upload-container']//input[@type='file']")).click();
+	    // Find path url of files to upload
+	    final String pathFile = new java.io.File("").getAbsolutePath()+"\\src\\MediaFiles\\"+FilePath+;				
+		Runtime.getRuntime().exec("src/LibraryPackage/AutoItUpload.exe "+pathFile);
+		Thread.sleep(5000);		
+		
+	}
+
+}

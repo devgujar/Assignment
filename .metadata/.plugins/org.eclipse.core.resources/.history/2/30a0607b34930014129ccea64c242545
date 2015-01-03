@@ -1,0 +1,53 @@
+package LibraryPackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class SignUpPageBuilder {
+
+	WebDriver driver= rtmediaPageBrowser.driver;
+	public void setUsername(String UserName){		
+	}
+
+	public void setPassword(String Password){		
+	}
+	
+	public void setConfirmPassword(String ConfirmPassword){		
+	}
+
+	public void setName(String Name){		
+	}
+
+	public void setCity(String City){		
+	}
+
+	public void setGender(String Gender){		
+	}
+	
+
+	public void Birthdate_day(String Birthdate_day){		
+	}
+	public void Birthdate_month(String Birthdate_month){		
+	}
+	public void Birthdate_Year(String Birthdate_Year){		
+	}
+
+	public int Get_security_Answer_for_SignUp_Page() {
+		int answer = 0;	
+		
+    	String str= driver.findElement(By.xpath("//label[@for='bp-security-check']")).getText(); 		    	
+
+    	if(str.contains("+"))
+    		answer = Integer.parseInt(String.valueOf(str.charAt(0))) + Integer.parseInt( String.valueOf(str.charAt(4)));
+    	else if (str.contains("-")) {
+    		answer =Integer.parseInt(String.valueOf(str.charAt(0))) - Integer.parseInt( String.valueOf(str.charAt(4)));
+		}		    			    	
+    	else if (str.contains("−")) {
+    		answer =Integer.parseInt(String.valueOf(str.charAt(0))) - Integer.parseInt( String.valueOf(str.charAt(4)));
+		}		    	
+
+    	return answer;
+	}
+
+
+}

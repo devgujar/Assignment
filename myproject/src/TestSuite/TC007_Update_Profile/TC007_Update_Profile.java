@@ -1,16 +1,15 @@
 package TestSuite.TC007_Update_Profile;
 import java.io.IOException;
+
 import java.util.Hashtable;
 import junit.framework.Assert;
 import jxl.read.biff.BiffException;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import LibraryPackage.*;
 
-import LibraryPackage.ProfileBuilder;
-import LibraryPackage.Project_Interface_Definations;
-import LibraryPackage.rtmediaPageBrowser;
 
-public class TC007_Update_Profile extends Project_Interface_Definations{
+public class TC007_Update_Profile {
 
 	@Test
 	public void TC007_Update_Profile() throws BiffException, IOException {
@@ -25,7 +24,7 @@ public class TC007_Update_Profile extends Project_Interface_Definations{
 		rtmediaPage.Navigate_to_Login_Window();
 
 		//Get Test case Data
-	    Hashtable<String, String> excellData = GetExcell_Data_As_Hashtable("TC007_Update_Profile.xls");
+	    Hashtable<String, String> excellData = rtmediaPage.GetExcell_Data_As_Hashtable("TC007_Update_Profile.xls");
 		
 		//Login with valid User Name and Password
 		rtmediaPage.LogIn_As_User(excellData.get("username"),excellData.get("password"));
@@ -44,7 +43,8 @@ public class TC007_Update_Profile extends Project_Interface_Definations{
 		// Verify Profile update Success message.
 		Assert.assertTrue("Profile not updated correctly.", rtmediaPage.VerifyText("Changes saved."));
 	    
-	    
+    	//Clean up code
+    	rtmediaPage.Close();
 	}
 
 }

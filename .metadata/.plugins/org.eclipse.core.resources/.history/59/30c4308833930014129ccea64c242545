@@ -1,0 +1,9 @@
+package LibraryPackage;
+
+public class SignUpPageBuilder {
+
+	public void setUsername(){
+		
+	}
+	
+}

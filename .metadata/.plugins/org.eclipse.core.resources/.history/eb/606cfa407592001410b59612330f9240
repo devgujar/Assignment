@@ -1,0 +1,9 @@
+package TestSuite.TC001_Verify_Sigup_on_rtMedia_NewUser;
+
+public class TC008_Upload_Image_Audio_Video_Doc_In_Media {
+
+	public TC008_Upload_Image_Audio_Video_Doc_In_Media() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

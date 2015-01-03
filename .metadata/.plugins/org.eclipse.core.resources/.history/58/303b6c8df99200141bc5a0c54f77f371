@@ -1,0 +1,48 @@
+package TestSuite.TC008_Upload_Image_Audio_Video_Doc_In_Media;
+
+import java.io.IOException;
+import java.util.Hashtable;
+import org.junit.Test;
+
+import bsh.Console;
+import jxl.read.biff.BiffException;
+import LibraryPackage.*;
+
+
+public class TC008_Upload_Image_Audio_Video_Doc_In_Media {
+	
+	@Test
+	public void TC008_Upload_Image_Audio_Video_Doc_In_Media() throws BiffException, IOException, InterruptedException {
+
+		// Create Page Object
+		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();
+		
+		//Start Home Page
+		rtmediaPage.Start_Home_Page();
+		
+		//Navigate to LogIn Window
+		rtmediaPage.Navigate_to_Login_Window();
+		
+		//Get Test case Data
+	    Hashtable<String, String> excellData = rtmediaPage.GetExcell_Data_As_Hashtable("TC008_Upload_Image_Audio_Video_Doc_In_Media.xls");
+	    	    
+		//Login with valid User Name and Password
+		rtmediaPage.LogIn_As_User(excellData.get("username"),excellData.get("password"));
+
+	    MediaPageBuilder MediaPage =new MediaPageBuilder();	    
+	    
+	    
+	    rtmediaPage.Navigate_to_Actvity();
+	    rtmediaPage.Navigate_to_Media_Tab();
+	    MediaPage.Navigate_to_UploadUI();
+	    MediaPage.setAlbum("Wall Posts");
+	    MediaPage.setPrivacy("Public");
+	    MediaPage.upload_File("TC005_Check_Post_Updating_With_Media.jpg");
+	    
+	    
+	    MediaPage.upload_File("TC005_Check_Post_Updating_With_Media_Gulabi_Aankien.mp3");
+	    MediaPage.upload_File("TC005_Check_Post_Updating_With_Media.docx");
+	    MediaPage.upload_File("TC005_Check_Post_Updating_With_Media+Bhastrika_Pranayama.mp4");
+	}
+
+}

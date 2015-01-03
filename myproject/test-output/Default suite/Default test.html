@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Dec 29 16:53:52 IST 2014</td>
+<td>Started on:</td><td>Fri Jan 02 18:57:29 IST 2015</td>
 </tr>
-<tr><td>Total time:</td><td>16 seconds (16599 ms)</td>
+<tr><td>Total time:</td><td>33 seconds (33848 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,15 +75,18 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='TestSuite.TC003_Login_With_Valid_UserName_and_Password.TC003_Login_With_Valid_UserName_and_Password.TC003_Login_With_Valid_UserName_and_Password()'><b>TC003_Login_With_Valid_UserName_and_Password</b><br>Test class: TestSuite.TC003_Login_With_Valid_UserName_and_Password.TC003_Login_With_Valid_UserName_and_Password</td>
+<td title='TestSuite.TC008_Upload_Image_Audio_Video_Doc_In_Media.TC008_Upload_Image_Audio_Video_Doc_In_Media.TC008_Upload_Image_Audio_Video_Doc_In_Media()'><b>TC008_Upload_Image_Audio_Video_Doc_In_Media</b><br>Test class: TestSuite.TC008_Upload_Image_Audio_Video_Doc_In_Media.TC008_Upload_Image_Audio_Video_Doc_In_Media</td>
 <td><div><pre>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
 Build info: version: &apos;2.42.2&apos;, revision: &apos;6a6995d&apos;, time: &apos;2014-06-03 17:42:30&apos;
-System info: host: &apos;L364&apos;, ip: &apos;172.16.1.210&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_45&apos;
+System info: host: &apos;L364&apos;, ip: &apos;100.85.75.44&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_45&apos;
 Driver info: driver.version: RemoteWebDriver
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:593)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at LibraryPackage.Project_Interface_Definations.start_setup(Project_Interface_Definations.java:86)
-	at TestSuite.TC003_Login_With_Valid_UserName_and_Password.TC003_Login_With_Valid_UserName_and_Password.TC003_Login_With_Valid_UserName_and_Password(TC003_Login_With_Valid_UserName_and_Password.java:17)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at LibraryPackage.rtmediaPageBrowser.Navigate_to_Login_Window(rtmediaPageBrowser.java:63)
+	at TestSuite.TC008_Upload_Image_Audio_Video_Doc_In_Media.TC008_Upload_Image_Audio_Video_Doc_In_Media.TC008_Upload_Image_Audio_Video_Doc_In_Media(TC008_Upload_Image_Audio_Video_Doc_In_Media.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -124,7 +127,7 @@ Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7
 	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)
 	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
-	... 27 more
+	... 30 more
 Caused by: java.net.ConnectException: Connection refused: connect
 	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
 	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
@@ -136,16 +139,19 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at java.net.Socket.connect(Unknown Source)
 	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)
 	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:118)
-	... 41 more
-</pre></div><a href='#' onClick='toggleBox("stack-trace1349873564", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1349873564'><pre>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+	... 44 more
+</pre></div><a href='#' onClick='toggleBox("stack-trace1339179913", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1339179913'><pre>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
 Build info: version: &apos;2.42.2&apos;, revision: &apos;6a6995d&apos;, time: &apos;2014-06-03 17:42:30&apos;
-System info: host: &apos;L364&apos;, ip: &apos;172.16.1.210&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_45&apos;
+System info: host: &apos;L364&apos;, ip: &apos;100.85.75.44&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_45&apos;
 Driver info: driver.version: RemoteWebDriver
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:593)
-	at org.openqa.selenium.remote.RemoteWebDriver.get(RemoteWebDriver.java:304)
-	at LibraryPackage.Project_Interface_Definations.start_setup(Project_Interface_Definations.java:86)
-	at TestSuite.TC003_Login_With_Valid_UserName_and_Password.TC003_Login_With_Valid_UserName_and_Password.TC003_Login_With_Valid_UserName_and_Password(TC003_Login_With_Valid_UserName_and_Password.java:17)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:449)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:357)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
+	at LibraryPackage.rtmediaPageBrowser.Navigate_to_Login_Window(rtmediaPageBrowser.java:63)
+	at TestSuite.TC008_Upload_Image_Audio_Video_Doc_In_Media.TC008_Upload_Image_Audio_Video_Doc_In_Media.TC008_Upload_Image_Audio_Video_Doc_In_Media(TC008_Upload_Image_Audio_Video_Doc_In_Media.java:21)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
@@ -186,7 +192,7 @@ Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:7
 	at org.openqa.selenium.firefox.internal.NewProfileExtensionConnection.execute(NewProfileExtensionConnection.java:165)
 	at org.openqa.selenium.firefox.FirefoxDriver$LazyCommandExecutor.execute(FirefoxDriver.java:362)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:572)
-	... 27 more
+	... 30 more
 Caused by: java.net.ConnectException: Connection refused: connect
 	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
 	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
@@ -198,10 +204,10 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at java.net.Socket.connect(Unknown Source)
 	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:72)
 	at org.apache.http.impl.conn.HttpClientConnectionOperator.connect(HttpClientConnectionOperator.java:118)
-	... 41 more
+	... 44 more
 </pre></div></td>
-<td>16</td>
-<td>TestSuite.TC003_Login_With_Valid_UserName_and_Password.TC003_Login_With_Valid_UserName_and_Password@2870068a</td></tr>
+<td>33</td>
+<td>TestSuite.TC008_Upload_Image_Audio_Video_Doc_In_Media.TC008_Upload_Image_Audio_Video_Doc_In_Media@65289697</td></tr>
 </table><p>
 </body>
 </html>

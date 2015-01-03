@@ -78,6 +78,10 @@ public class rtmediaPageBrowser {
 	    driver.findElement(By.linkText("Profile")).click();
 	}
 
+	public void Navigate_to_Media_Tab(){
+	    driver.findElement(By.xpath("//a[@id='user-media'][contains(.,'Media')]")).click();	
+	}
+	
 	public void logout(){
 	    driver.findElement(By.xpath("//span[@class='rtp-user-name']//..")).click();	    
 	    driver.findElement(By.linkText("Logout")).click();
@@ -173,41 +177,7 @@ public class rtmediaPageBrowser {
 	    driver.findElement(By.id("aw-whats-new-submit")).click();
 	}
 	
-	public int Get_security_Answer_for_SignUp_Page() {
-		int answer = 0;	
-		
-    	String str= driver.findElement(By.xpath("//label[@for='bp-security-check']")).getText(); 		    	
 
-    	if(str.contains("+"))
-    		answer = Integer.parseInt(String.valueOf(str.charAt(0))) + Integer.parseInt( String.valueOf(str.charAt(4)));
-    	else if (str.contains("-")) {
-    		answer =Integer.parseInt(String.valueOf(str.charAt(0))) - Integer.parseInt( String.valueOf(str.charAt(4)));
-		}		    			    	
-    	else if (str.contains("−")) {
-    		answer =Integer.parseInt(String.valueOf(str.charAt(0))) - Integer.parseInt( String.valueOf(str.charAt(4)));
-		}		    	
-
-    	return answer;
-	}
-	
-	public void Enter_SignUp_form_details_from_excell_sheet(String test_data_sheet_path) throws BiffException, IOException{
-		
-		Hashtable<String, String> excellData =GetExcell_Data_As_Hashtable(test_data_sheet_path);			
-		driver.findElement(By.id("signup_username")).sendKeys(excellData.get("signup_username"));
-		driver.findElement(By.id("signup_email")).sendKeys(excellData.get("signup_email"));
-		driver.findElement(By.id("signup_password")).sendKeys(excellData.get("signup_password"));		    
-		driver.findElement(By.id("signup_password_confirm")).sendKeys(excellData.get("signup_password"));
-		    
-		driver.findElement(By.id("field_1")).sendKeys(excellData.get("Name"));
-		driver.findElement(By.id("field_2")).sendKeys(excellData.get("city"));
-		driver.findElement(By.xpath("//option[@value='"+  excellData.get("gender") + "']")).click();		    
-		driver.findElement(By.xpath("//select[@id='field_4_day']//option[@value='"+excellData.get("birthdate_field_4_day")+"']")).click();  
-		driver.findElement(By.xpath("//select[@id='field_4_month']//option[@value='"+excellData.get("birthdate_field_4_month")+"']")).click();  
-		driver.findElement(By.xpath("//select[@id='field_4_year']//option[@value='"+excellData.get("birthdate_field_4_year")+"']")).click();  
-		driver.findElement(By.name("bp-security-check")).sendKeys(String.valueOf(Get_security_Answer_for_SignUp_Page()));
-		driver.findElement(By.xpath("//input[@id='signup_submit']")).click();
-	}
-	
 	public boolean VerifyText(String textToBeVerified)
 	{
 		try
@@ -245,6 +215,9 @@ public class rtmediaPageBrowser {
 		    }
 		  }
 
-
+	public void Close() {
+	      driver.quit();
+	    }
+	  
 
 }

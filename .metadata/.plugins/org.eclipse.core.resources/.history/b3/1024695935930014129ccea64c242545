@@ -1,0 +1,67 @@
+package LibraryPackage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class SignUpPageBuilder {
+
+	WebDriver driver= rtmediaPageBrowser.driver;
+	
+	public void setUsername(String UserName){		
+		driver.findElement(By.id("signup_username")).sendKeys(UserName);
+	}
+
+	public void setEmail(String Email){		
+		driver.findElement(By.id("signup_email")).sendKeys(Email);
+	}
+	
+	public void setPassword(String Password){
+		driver.findElement(By.id("signup_password")).sendKeys(Password);
+	}	
+	
+	public void setConfirmPassword(String ConfirmPassword){		
+		driver.findElement(By.id("signup_password_confirm")).sendKeys(ConfirmPassword);
+	}
+
+	public void setName(String Name){
+		driver.findElement(By.id("field_1")).sendKeys(Name);
+	}
+
+	public void setCity(String City){
+		driver.findElement(By.id("field_2")).sendKeys(City);
+	}
+
+	public void setGender(String Gender){
+		driver.findElement(By.xpath("//option[@value='"+ Gender + "']")).click();	
+	}
+	
+	public void Birthdate_day(String Birthdate_day){		
+		driver.findElement(By.xpath("//select[@id='field_4_day']//option[@value='"+excellData.get("birthdate_field_4_day")+"']")).click();  
+		driver.findElement(By.xpath("//select[@id='field_4_month']//option[@value='"+excellData.get("birthdate_field_4_month")+"']")).click();  
+		driver.findElement(By.xpath("//select[@id='field_4_year']//option[@value='"+excellData.get("birthdate_field_4_year")+"']")).click(
+	}
+	
+	public void Birthdate_month(String Birthdate_month){		
+	}
+	
+	public void Birthdate_Year(String Birthdate_Year){		
+	}
+
+	public int setSecurityAnswer() {
+		int answer = 0;	
+		
+    	String str= driver.findElement(By.xpath("//label[@for='bp-security-check']")).getText(); 		    	
+
+    	if(str.contains("+"))
+    		answer = Integer.parseInt(String.valueOf(str.charAt(0))) + Integer.parseInt( String.valueOf(str.charAt(4)));
+    	else if (str.contains("-")) {
+    		answer =Integer.parseInt(String.valueOf(str.charAt(0))) - Integer.parseInt( String.valueOf(str.charAt(4)));
+		}		    			    	
+    	else if (str.contains("−")) {
+    		answer =Integer.parseInt(String.valueOf(str.charAt(0))) - Integer.parseInt( String.valueOf(str.charAt(4)));
+		}		    	
+    	return answer;
+	}
+
+
+}

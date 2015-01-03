@@ -27,18 +27,35 @@ public class TC002_Verify_Sigup_on_rtMedia_ExistingUser {
 		
 		// Create Page Object
 		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();		
+		
+		//Get Test data
+		Hashtable<String, String> excellData =rtmediaPage.GetExcell_Data_As_Hashtable("TC002_Verify_Sigup_on_rtMedia_ExistingUser.xls");
 			
 		//Start Home Page
 		rtmediaPage.Start_Home_Page();
 		
 		// Navigate to Sign Up page
 		rtmediaPage.Navigate_to_SignUp_Page();
-		
-		// Fetch data from excelSheet and fill sign up form and click submit.		    
-		rtmediaPage.Enter_SignUp_form_details_from_excell_sheet("TC002_Verify_Sigup_on_rtMedia_ExistingUser.xls");		    
+
+			SignUpPageBuilder SignUpPage = new SignUpPageBuilder();
+			
+			SignUpPage.setUsername(excellData.get("signup_username"));
+			SignUpPage.setEmail(excellData.get("signup_username"));
+			SignUpPage.setPassword(excellData.get("signup_password"));
+			SignUpPage.setConfirmPassword(excellData.get("signup_password"));		
+			SignUpPage.setName(excellData.get("Name"));  
+			SignUpPage.setCity(excellData.get("city"));
+			SignUpPage.setGender(excellData.get("gender"));
+			SignUpPage.setBirthdate_day(excellData.get("birthdate_field_4_day"));
+			SignUpPage.setBirthdate_month(excellData.get("birthdate_field_4_month"));
+			SignUpPage.setBirthdate_Year(excellData.get("birthdate_field_4_year"));
+		    SignUpPage.setSecurityAnswer();
+		    SignUpPage.Submit();
 	    	
 		//Verify message on Sign Up completion		
 		Assert.assertTrue(rtmediaPage.VerifyText("Sorry, that username already exists!") || rtmediaPage.VerifyText("Sorry, that email address is already used!"));
 	  
+    	//Clean up code
+    	rtmediaPage.Close();
 	}
 }

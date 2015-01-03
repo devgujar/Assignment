@@ -2,13 +2,13 @@ package TestSuite.TC004_Login_With_InValid_UserName_and_Password;
 
 import java.io.IOException;
 import java.util.Hashtable;
-import LibraryPackage.Project_Interface_Definations;
 import LibraryPackage.rtmediaPageBrowser;
 import junit.framework.Assert;
 import jxl.read.biff.BiffException;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import LibraryPackage.*;
+
 
 public class TC004_Login_With_InValid_UserName_and_Password {
 
@@ -31,6 +31,9 @@ public class TC004_Login_With_InValid_UserName_and_Password {
 		rtmediaPage.LogIn_As_User(excellData.get("username"),excellData.get("password"));
 	    	    
 	    Assert.assertTrue(rtmediaPage.VerifyText("ERROR"));
+	    
+    	//Clean up code
+    	rtmediaPage.Close();
 		
 	}
 

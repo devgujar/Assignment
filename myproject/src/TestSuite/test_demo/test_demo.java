@@ -1,7 +1,9 @@
 package TestSuite.test_demo;
 import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.sql.Driver;
 import java.util.Hashtable;
 
 import junit.framework.Assert;
@@ -11,18 +13,19 @@ import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
-import LibraryPackage.Project_Interface_Definations;
 import LibraryPackage.rtmediaPageBrowser;
 
-public class test_demo extends Project_Interface_Definations{
+public class test_demo {
 	
 	@Test
-	public void Get_register_on_rtMedia() throws Exception {
-
-		rtmediaPageBrowser rtmediaPageBrowser =new rtmediaPageBrowser();
-		Hashtable< String, String> excellData = rtmediaPageBrowser.GetExcell_Data_As_Hashtable("test_demo.xls");
+	public void Get_register_on_rtMedia() throws Exception {		
+		System.out.println("TEST");
 		
-		System.out.println(excellData.get("Name"));
+		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();
+		rtmediaPage.Start_Home_Page();
+		
+    	//Clean up code
+    	rtmediaPage.Close();
 	  }
 
 }

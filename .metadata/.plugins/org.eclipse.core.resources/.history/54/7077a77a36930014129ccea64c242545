@@ -1,0 +1,49 @@
+package TestSuite.TC005_Check_Post_Updating_With_Media;
+
+
+import org.junit.Test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.reporters.jq.Main;
+import java.io.IOException;
+import java.util.Hashtable;
+import java.util.concurrent.TimeUnit;
+import javax.print.DocFlavor.URL;
+import jxl.read.biff.BiffException;
+import LibraryPackage.*;
+
+public class TC005_Check_Post_Updating_With_Media {
+
+	@Test
+	public void TC005_Check_Post_Updating_With_Media() throws BiffException, IOException, InterruptedException {
+
+		// Create Page Object
+		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();
+		
+		//Start Home Page
+		rtmediaPage.Start_Home_Page();		
+		
+		//Get Test case Data
+	    Hashtable<String, String> excellData = rtmediaPage.GetExcell_Data_As_Hashtable("TC005_Check_Post_Updating_With_Media.xls");
+			
+		//Navigate to LogIn Window
+		rtmediaPage.Navigate_to_Login_Window();		
+		
+		//Login with valid User Name and Password
+		rtmediaPage.LogIn_As_User(excellData.get("username"),excellData.get("password"));
+		
+	    // Navigaet to Activity Page on UI
+		rtmediaPage.Navigate_to_Actvity();
+		
+		//Open File upload dialog
+		ActivityPageBuilder ActivityPage = new ActivityPageBuilder();
+		ActivityPage.Upload_File("TC005_Image.jpg");
+
+		//Set post text	and Click submit
+		Thread.sleep(5000);
+		rtmediaPage.Publish_publicPost("test post with media as jpg");
+		
+	}
+
+}

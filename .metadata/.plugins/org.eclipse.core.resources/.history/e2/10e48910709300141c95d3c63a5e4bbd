@@ -1,0 +1,52 @@
+package TestSuite.TC001_Verify_Sigup_on_rtMedia_NewUser;
+import java.io.File;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.Hashtable;
+
+import junit.framework.Assert;
+
+import org.apache.bcel.generic.Select;
+import org.apache.commons.io.FileUtils;
+import org.junit.After;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.testng.asserts.Assertion;
+
+import LibraryPackage.*;
+
+
+
+/*	
+ * Get register on rtMedia	|  User should get successfully registered
+ * 
+ */
+public class TC001_Verify_Sigup_on_rtMedia_NewUser{
+	
+	@Test
+	public void TC001_Verify_Sigup_on_rtMedia_NewUser() throws Exception {
+		
+		// Create Page Object
+		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();		
+		
+		//Get Test data
+		Hashtable<String, String> excellData =GetExcell_Data_As_Hashtable(test_data_sheet_path);
+			
+		//Start Home Page
+		rtmediaPage.Start_Home_Page();
+		
+		// Navigate to Sign Up page
+		rtmediaPage.Navigate_to_SignUp_Page();
+		
+		// Fetch data from excelSheet and fill sign up form and click submit. 
+		rtmediaPage.Enter_SignUp_form_details_from_excell_sheet("TC001_Verify_Sigup_on_rtMedia_NewUser.xls");
+
+		//Verify success message on Sign Up completion
+    	Assert.assertTrue(rtmediaPage.VerifyText("You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address."));   	
+
+    	//Clean up code
+    	rtmediaPage.Close();
+	}
+
+}

@@ -13,8 +13,10 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="driver." key="selection"/>
+		<item value="rtmediaPageBrowser" key="selection"/>
 		<list key="findhistory">
+			<item value="rtmediaPageBrowser"/>
+			<item value="Navigate_to_Media"/>
 			<item value="rtmediaPageBrowser.driver."/>
 			<item value="rtmediaPage."/>
 			<item value="&quot;src/TestSuite/Get_register_on_rtMedia/Get_register_on_rtMedia.xls&quot;"/>

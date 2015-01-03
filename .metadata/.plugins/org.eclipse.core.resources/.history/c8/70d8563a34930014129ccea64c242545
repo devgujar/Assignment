@@ -1,0 +1,33 @@
+package LibraryPackage;
+
+public class SignUpPageBuilder {
+
+	public void setUsername(String UserName){		
+	}
+
+	public void setPassword(String Password){		
+	}
+	
+	public void setConfirmPassword(String ConfirmPassword){		
+	}
+
+	public void setName(String Name){		
+	}
+
+	public void setCity(String City){		
+	}
+
+	public void setGender(String Gender){		
+	}
+	
+
+	public void Birthdate_day(String Birthdate_day){		
+	}
+	public void Birthdate_month(String Birthdate_month){		
+	}
+	public void Birthdate_Year(String Gender){		
+	}
+
+	Birthdate_day
+
+}

@@ -2,15 +2,11 @@ package TestSuite.TC006_CheckPrivacy_Settings_for_Post;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.concurrent.TimeUnit;
-
 import junit.framework.Assert;
 import jxl.read.biff.BiffException;
-
 import org.junit.Test;
 import org.openqa.selenium.By;
-
-import LibraryPackage.Project_Interface_Definations;
-import LibraryPackage.rtmediaPageBrowser;
+import LibraryPackage.*;
 
 /*
  * 1. Create Private Post.
@@ -25,7 +21,7 @@ import LibraryPackage.rtmediaPageBrowser;
  */
 
 
-public class TC006_CheckPrivacy_Settings_for_Post extends Project_Interface_Definations{
+public class TC006_CheckPrivacy_Settings_for_Post {
 
 	@Test
 	public void TC006_CheckPrivacy_Settings_for_Post() throws BiffException, IOException {
@@ -46,10 +42,10 @@ public class TC006_CheckPrivacy_Settings_for_Post extends Project_Interface_Defi
 		rtmediaPage.Navigate_to_Login_Window();
 
 		//Get Test case Data		
-	    Hashtable<String, String> excellData = GetExcell_Data_As_Hashtable("TC006_CheckPrivacy_Settings_for_Post.xls");
+	    Hashtable<String, String> excellData = rtmediaPage.GetExcell_Data_As_Hashtable("TC006_CheckPrivacy_Settings_for_Post.xls");
 	    
 		//Login with valid User Name and Password
-	    LogIn_As_User(excellData.get("username"),excellData.get("password"));
+	    rtmediaPage.LogIn_As_User(excellData.get("username"),excellData.get("password"));
 
 	    // Navigaet to Activity Page on UI
 	    rtmediaPage.Navigate_to_Actvity();
@@ -81,5 +77,8 @@ public class TC006_CheckPrivacy_Settings_for_Post extends Project_Interface_Defi
 	    
 	    // * 9. verify that the private post is not displayed.
 	    Assert.assertFalse("Test Failed: Private Post is Visible", rtmediaPage.VerifyText(private_post));
+	    
+    	//Clean up code
+    	rtmediaPage.Close();
 	}
 }

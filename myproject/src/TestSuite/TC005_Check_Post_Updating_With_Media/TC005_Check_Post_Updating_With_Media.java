@@ -2,6 +2,7 @@ package TestSuite.TC005_Check_Post_Updating_With_Media;
 
 
 import org.junit.Test;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.reporters.jq.Main;
@@ -37,16 +38,15 @@ public class TC005_Check_Post_Updating_With_Media {
 		
 		//Open File upload dialog
 		ActivityPageBuilder ActivityPage = new ActivityPageBuilder();
-		ActivityPage.Open_File_Upload_Dialog();
-				
-	    // Find path url of files to upload
-	    final String pathFile = new java.io.File("").getAbsolutePath()+"\\src\\TestSuite\\TC005_Check_Post_Updating_With_Media\\Koala.jpg";				
-		Runtime.getRuntime().exec("src/LibraryPackage/AutoItUpload.exe "+pathFile);
-		Thread.sleep(5000);
+		ActivityPage.Upload_File("TC005_Image.jpg");
 
-		//Set post text	and Click submit	
-		rtmediaPage.Publish_publicPost("test post with media as jpg");
+		//Set post text	and Click submit
 		Thread.sleep(5000);
+		rtmediaPage.Publish_publicPost("test post with media as jpg");
+		
+    	//Clean up code
+    	rtmediaPage.Close();
+		
 	}
 
 }
