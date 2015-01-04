@@ -1,8 +1,5 @@
 package TestSuite.test_demo;
-import java.io.File;
-
 import java.io.FileInputStream;
-import java.io.InputStream;
 import java.sql.Driver;
 import java.util.Hashtable;
 

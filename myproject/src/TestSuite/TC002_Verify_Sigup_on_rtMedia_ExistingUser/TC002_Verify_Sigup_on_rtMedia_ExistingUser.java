@@ -1,22 +1,13 @@
 package TestSuite.TC002_Verify_Sigup_on_rtMedia_ExistingUser;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
+
 import java.util.Hashtable;
-
 import junit.framework.Assert;
-import jxl.common.AssertionFailed;
-
-import org.apache.bcel.generic.Select;
-import org.apache.commons.io.FileUtils;
 import org.junit.Test;
-import org.openqa.selenium.By;
-
 import LibraryPackage.*;
 
 /*
  * Test Objective  : Check the process of registration with already registered user name or email id 
- * Expected Result :
+ * Expected Result : User should get an error message, any of email or username already registered
  * 
  */
 public class TC002_Verify_Sigup_on_rtMedia_ExistingUser {
@@ -33,14 +24,11 @@ public class TC002_Verify_Sigup_on_rtMedia_ExistingUser {
 			
 		//Start Home Page
 		rtmediaPage.Start_Home_Page();
-		
-		// Navigate to Sign Up page
-		rtmediaPage.Navigate_to_SignUp_Page();
 
-			SignUpPageBuilder SignUpPage = new SignUpPageBuilder();
+		SignUpPageBuilder SignUpPage = new SignUpPageBuilder();
 			
 			SignUpPage.setUsername(excellData.get("signup_username"));
-			SignUpPage.setEmail(excellData.get("signup_username"));
+			SignUpPage.setEmail(excellData.get("signup_email"));
 			SignUpPage.setPassword(excellData.get("signup_password"));
 			SignUpPage.setConfirmPassword(excellData.get("signup_password"));		
 			SignUpPage.setName(excellData.get("Name"));  

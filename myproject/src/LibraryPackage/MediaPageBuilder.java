@@ -6,11 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 public class MediaPageBuilder {	
 	
-		WebDriver driver= rtmediaPageBrowser.driver;
-		
+	  WebDriver driver= rtmediaPageBrowser.driver;
 		
 	  public void Navigate_to_UploadUI(){
 		    // Navigate to Activity Page on UI
@@ -55,7 +53,7 @@ public class MediaPageBuilder {
 			(new WebDriverWait(driver, 10)).until(ExpectedConditions.textToBePresentInElementLocated(
 					By.xpath("//td[@class='plupload_file_status']"), "Uploaded"));
 			
-			System.out.println(driver.findElement(By.xpath("//td[@class='plupload_file_status']")).getText());
+			System.out.println("Upload Status :"+driver.findElement(By.xpath("//td[@class='plupload_file_status']")).getText());
 						
 		}	
 }

@@ -7,6 +7,11 @@ public class SignUpPageBuilder {
 
 	WebDriver driver= rtmediaPageBrowser.driver;
 	
+	public SignUpPageBuilder(){
+	    driver.findElement(By.xpath("//a[contains(.,'Login')]")).click();
+	    driver.findElement(By.xpath("//a[contains(.,'Register')]")).click();
+	}
+	
 	public void setUsername(String UserName){		
 		driver.findElement(By.id("signup_username")).sendKeys(UserName);
 	}

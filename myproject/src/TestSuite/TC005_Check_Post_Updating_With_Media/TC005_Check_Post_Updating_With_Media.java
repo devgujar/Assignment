@@ -1,17 +1,16 @@
 package TestSuite.TC005_Check_Post_Updating_With_Media;
 
-
 import org.junit.Test;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.reporters.jq.Main;
 import java.io.IOException;
 import java.util.Hashtable;
-import java.util.concurrent.TimeUnit;
-import javax.print.DocFlavor.URL;
 import jxl.read.biff.BiffException;
 import LibraryPackage.*;
+
+/*
+ * Test Objective 	: 	Check the process of post updating with media
+ * Expected Result 	:	Post should be published on profile with image /audio/video
+ * 
+ */
 
 public class TC005_Check_Post_Updating_With_Media {
 

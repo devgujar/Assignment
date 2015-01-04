@@ -1,0 +1,45 @@
+package TestSuite.TC003_Login_With_Valid_UserName_and_Password;
+import java.io.IOException;
+/*
+ * Test Objective 	: 	Login with valid user name and password
+ * Expected Result 	:	User should get successfully logged in
+ * 
+ */
+
+
+import jxl.read.biff.BiffException;
+import java.util.Hashtable;
+import junit.framework.Assert;
+import org.junit.Test;
+import LibraryPackage.*;
+
+public class TC003_Login_With_Valid_UserName_and_Password{
+
+	@Test
+	public void TC003_Login_With_Valid_UserName_and_Password() throws BiffException, IOException {
+	
+	    	    	 
+		// Create Page Object
+		rtmediaPageBrowser rtmediaPage = new rtmediaPageBrowser();
+		
+		//Get Test case Data
+		Hashtable<String, String> excellData = rtmediaPage.GetExcell_Data_As_Hashtable("TC003_Login_With_Valid_UserName_and_Password.xls");
+		
+		//Start Home Page
+		rtmediaPage.Start_Home_Page();
+						
+		//Navigate to LogIn Window
+		rtmediaPage.Navigate_to_Login_Window();
+		
+		//Login with valid User Name and Password
+		rtmediaPage.LogIn_As_User(excellData.get("username"),excellData.get("password"));
+	    	
+		// Verify String..."Welcome To rtDating" 
+	    Assert.assertTrue(rtmediaPage.VerifyText("Welcome To rtDating"));
+	    
+    	//Clean up code
+    	rtmediaPage.Close();
+	    
+	}
+
+}

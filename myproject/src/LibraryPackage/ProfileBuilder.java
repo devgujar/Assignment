@@ -28,8 +28,7 @@ public class ProfileBuilder {
 	public void setBirthdate(String day, String month,String year) {
 	    driver.findElement(By.xpath("//select[@id='field_4_day']//option[@value='"+day+"']")).click();
 	    driver.findElement(By.xpath("//select[@id='field_4_month']//option[@value='"+month+"']")).click();
-	    driver.findElement(By.xpath("//select[@id='field_4_year']//option[@value='"+year+"']")).click();    
-	    
+	    driver.findElement(By.xpath("//select[@id='field_4_year']//option[@value='"+year+"']")).click();
 	}
 
 	public void setGender(String gender) {

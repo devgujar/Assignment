@@ -1,30 +1,34 @@
 package TestSuite.TC006_CheckPrivacy_Settings_for_Post;
+
 import java.io.IOException;
 import java.util.Hashtable;
-import java.util.concurrent.TimeUnit;
 import junit.framework.Assert;
 import jxl.read.biff.BiffException;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import LibraryPackage.*;
 
 /*
- * 1. Create Private Post.
- * 2. Create Friends post.
- * 3. Create Logged in Users post.
- * 4. Create Public Post.
- * 5. Visit profile page as guest user(not logged in user).
- * 6. verify that the public post is displayed.
- * 7. verify that the Friends post is not displayed. 
- * 8. verify that the Logged in Users is not displayed.
- * 9. verify that the private post is not displayed.
+ * Test Objective 	: 	Check the privacy Settings of post
+ * Expected Result 	:	Post should be visible according to privacy settings
+ * 
  */
+	/*Test Steps
+		 * 1. Create Private Post.
+		 * 2. Create Friends post.
+		 * 3. Create Logged in Users post.
+		 * 4. Create Public Post.
+		 * 5. Visit profile page as guest user(not logged in user).
+		 * 6. verify that the public post is displayed.
+		 * 7. verify that the Friends post is not displayed. 
+		 * 8. verify that the Logged in Users is not displayed.
+		 * 9. verify that the private post is not displayed.
+	 */
 
 
 public class TC006_CheckPrivacy_Settings_for_Post {
 
 	@Test
-	public void TC006_CheckPrivacy_Settings_for_Post() throws BiffException, IOException {
+	public void TC006_CheckPrivacy_Settings_for_Post() throws BiffException, IOException, InterruptedException {
 		
 		double random_number= Math.random();
 		String public_post ="This is public post_"+random_number;

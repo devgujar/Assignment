@@ -1,23 +1,17 @@
 package TestSuite.TC003_Login_With_Valid_UserName_and_Password;
 import java.io.IOException;
-
-
 import jxl.read.biff.BiffException;
-
-import org.openqa.selenium.By;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.util.Hashtable;
-
 import junit.framework.Assert;
-import jxl.common.AssertionFailed;
-
-import org.apache.bcel.generic.Select;
-import org.apache.commons.io.FileUtils;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import LibraryPackage.*;
+
+/*
+ * Test Objective 	: 	Login with valid user name and password
+ * Expected Result 	:	User should get successfully logged in
+ * 
+ */
+
 
 public class TC003_Login_With_Valid_UserName_and_Password{
 

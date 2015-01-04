@@ -65,7 +65,7 @@ public class rtmediaPageBrowser {
 
 	public  void Navigate_to_SignUp_Page(){
 	    driver.findElement(By.xpath("//a[contains(.,'Login')]")).click();
-	    driver.findElement(By.xpath("//a[contains(.,'Register')]")).click();	    
+	    driver.findElement(By.xpath("//a[contains(.,'Register')]")).click();
 	}
 	
 	public void Navigate_to_Actvity(){
@@ -142,32 +142,35 @@ public class rtmediaPageBrowser {
 	    driver.findElement(By.name("wp-submit")).submit();
 	}
 
-	public void Publish_privatePost(String Post_Text) {
+	public void Publish_privatePost(String Post_Text) throws InterruptedException {
 	    driver.findElement(By.xpath("//div[@id='whats-new-textarea']//textarea")).clear();
 	    System.out.println("Entering private post :"+Post_Text);
 	    driver.findElement(By.xpath("//div[@id='whats-new-textarea']//textarea")).sendKeys(Post_Text);
 	    driver.findElement(By.xpath("//select[@id='rtSelectPrivacy']//option[contains(.,'Private')]")).click();
 	    driver.findElement(By.id("aw-whats-new-submit")).click();
+	    Thread.sleep(2000);
 	}
 
-	public void Publish_publicPost(String Post_Text) {
+	public void Publish_publicPost(String Post_Text) throws InterruptedException {
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.findElement(By.xpath("//div[@id='whats-new-textarea']//textarea")).clear();
 	    System.out.println("Entering public post :"+Post_Text);
 	    driver.findElement(By.xpath("//div[@id='whats-new-textarea']//textarea")).sendKeys(Post_Text);
 	    driver.findElement(By.id("aw-whats-new-submit")).click();
+	    Thread.sleep(2000);
 	}
 
-	public void Publish_FriendsPost(String Post_Text) {
+	public void Publish_FriendsPost(String Post_Text) throws InterruptedException {
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.findElement(By.xpath("//div[@id='whats-new-textarea']//textarea")).clear();
 	    System.out.println("Entering Friends post :"+Post_Text);
 	    driver.findElement(By.xpath("//div[@id='whats-new-textarea']//textarea")).sendKeys(Post_Text);
 	    driver.findElement(By.xpath("//select[@id='rtSelectPrivacy']//option[contains(.,'Friends')]")).click(); 
 	    driver.findElement(By.id("aw-whats-new-submit")).click();
+	    Thread.sleep(2000);
 	}
 	
-	public void Publish_Logged_in_UsersPost(String Post_Text) {
+	public void Publish_Logged_in_UsersPost(String Post_Text) throws InterruptedException {
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.findElement(By.xpath("//div[@id='whats-new-textarea']//textarea")).clear();
 	    System.out.println("Entering Logged in Users post :"+Post_Text);
@@ -175,6 +178,7 @@ public class rtmediaPageBrowser {
 	    driver.findElement(By.xpath("//select[@id='rtSelectPrivacy']//option[contains(.,'Logged in Users')]")).click();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.findElement(By.id("aw-whats-new-submit")).click();
+	    Thread.sleep(2000);
 	}
 	
 

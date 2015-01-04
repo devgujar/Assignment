@@ -36,4 +36,5 @@
 <fullyQualifiedTypeName name="java.sql.Driver"/>
 <fullyQualifiedTypeName name="LibraryPackage.rtmediaPageBrowser"/>
 <fullyQualifiedTypeName name="org.junit.After"/>
+<fullyQualifiedTypeName name="LibraryPackage.SignUpPageBuilder"/>
 </qualifiedTypeNameHistroy>

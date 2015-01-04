@@ -6,10 +6,13 @@ import LibraryPackage.rtmediaPageBrowser;
 import junit.framework.Assert;
 import jxl.read.biff.BiffException;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import LibraryPackage.*;
 
-
+/*
+ * Test Objective 	: 	Login with invalid user name and password
+ * Expected Result 	:	User should get error message,should not get logged in
+ * 
+ */
 public class TC004_Login_With_InValid_UserName_and_Password {
 
 	@Test

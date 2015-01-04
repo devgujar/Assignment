@@ -1,13 +1,17 @@
 package TestSuite.TC007_Update_Profile;
-import java.io.IOException;
 
+import java.io.IOException;
 import java.util.Hashtable;
 import junit.framework.Assert;
 import jxl.read.biff.BiffException;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import LibraryPackage.*;
 
+/*
+ * Test Objective 	: 	Update the profile
+ * Expected Result 	:	Profile should be updated successfully
+ * 
+ */
 
 public class TC007_Update_Profile {
 
