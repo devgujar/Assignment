@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="TC002_Verify_Sigup_on_rtMedia_ExistingUser" project="myproject" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="TestSuite.TC002_Verify_Sigup_on_rtMedia_ExistingUser.TC002_Verify_Sigup_on_rtMedia_ExistingUser" time="97.18">
-    <testcase name="TC002_Verify_Sigup_on_rtMedia_ExistingUser" classname="TestSuite.TC002_Verify_Sigup_on_rtMedia_ExistingUser.TC002_Verify_Sigup_on_rtMedia_ExistingUser" time="97.18"/>
-  </testsuite>
-</testrun>

@@ -1,9 +1,0 @@
-package Practice_Inheritance;
-
-public class MyDerivedClass extends MyBaseClass {
-	
-	public int sum(int x, int y)
-	{
-		return x + y;
-	}
-}

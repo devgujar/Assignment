@@ -1,7 +1,0 @@
-package Practice;
-
-public abstract interface MyInterface {
-
-	public double div(int x, int y);
-
-}

@@ -1,6 +1,0 @@
-package Practice_Inheritance;
-
-public interface MyInterface01 {	
-	public int sum01 (int x, int y);
-	public int sum02 (int x, int y);
-}
