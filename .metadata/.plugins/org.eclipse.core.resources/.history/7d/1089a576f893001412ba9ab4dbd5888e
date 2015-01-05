@@ -40,6 +40,7 @@ public class TC005_Check_Post_Updating_With_Media {
 		ActivityPage.Upload_File("TC005_Image_Koala.jpg");
 
 		//Set post text	and Click submit
+		Thread.sleep(5000);
 		rtmediaPage.Publish_publicPost("test post with media as jpg");
 		
     	//Clean up code

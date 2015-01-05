@@ -13,7 +13,7 @@ public class ActivityPageBuilder {
 	    // Find path url of files to upload
 	    final String pathFile = new java.io.File("").getAbsolutePath()+"\\src\\MediaFiles\\" + FileName ;
 		Runtime.getRuntime().exec("src/LibraryPackage/AutoItUpload.exe "+pathFile);
-		Thread.sleep(5000);
+		Thread.sleep(7000);
 	}
 
 }

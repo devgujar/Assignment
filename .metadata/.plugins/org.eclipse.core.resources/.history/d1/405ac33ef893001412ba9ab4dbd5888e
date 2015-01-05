@@ -178,7 +178,7 @@ public class rtmediaPageBrowser {
 	    driver.findElement(By.xpath("//select[@id='rtSelectPrivacy']//option[contains(.,'Logged in Users')]")).click();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.findElement(By.id("aw-whats-new-submit")).click();
-	    Thread.sleep(10000);
+	    Thread.sleep(2000);
 	}
 	
 
